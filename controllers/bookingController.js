@@ -1,13 +1,18 @@
 const db = require('../libs/db');
 
 exports.getAllBookings = (req, res) => {
-  const sql = 'SELECT * FROM bookings';
-  db.all(sql, [], (err, rows) => {
-    if (err) {
-      return res.status(500).json({ error: err.message });
-    }
-    res.json({ data: rows });
-  });
+  const { token  } = req.body;    
+  if (token === "QpwL5tke4Pnpja7X4") {
+    const sql = 'SELECT * FROM bookings';
+    db.all(sql, [], (err, rows) => {
+      if (err) {
+        return res.status(500).json({ error: err.message });
+      }
+      res.json({ data: rows });
+    }); 
+  } else {
+    return res.status(401).json({ error: 'Not authorized' });
+  }
 };
 
 exports.getBookingById = (req, res) => {
