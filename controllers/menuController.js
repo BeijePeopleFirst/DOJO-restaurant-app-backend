@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const BASE_URL = "https://private-anon-bbb36882f9-pizzaapp.apiary-mock.com";
+const BASE_URL = "https://private-anon-f2362d9103-pizzaapp.apiary-mock.com";
 const CATEGORIES = ['dryck', 'pizza', 'tillbehör'];
 
 exports.getMenuItems = async (req, res) => {
